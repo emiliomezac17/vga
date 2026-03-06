@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2024 Ciro Cattuto
  * based on the VGA examples by Uri Shaked
- * and on tt07-conway-term (https://github.com/ccattuto/tt07-conway-term)
+ * and on tt07-conway-term (https://github.com/ccattuto/tt07-conway-term) 
  * SPDX-License-Identifier: Apache-2.0
  */
 

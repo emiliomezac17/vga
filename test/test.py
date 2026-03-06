@@ -10,9 +10,6 @@ from PIL import Image, ImageChops
 
 @cocotb.test()
 async def test_project(dut):
-    # Esto hace que el test pase automáticamente (solo para debug inicial)
-    cocotb.pass_test()
-
     # Set clock period to 40 ns (25 MHz)
     CLOCK_PERIOD = 40
 
@@ -79,10 +76,6 @@ async def test_project(dut):
                 framebuffer[offset+3*i:offset+3*i+3] = palette[int(dut.uo_out.value)]
             await ClockCycles(dut.clk, 1)
 
-    async def skip_frame(frame_num):
-        dut._log.info(f"Skipping frame {frame_num}")
-        await ClockCycles(dut.clk, H_TOTAL*V_TOTAL)
-
     async def capture_frame(frame_num, check_sync=True):
         framebuffer = bytearray(V_DISPLAY*H_DISPLAY*3)
         for j in range(V_DISPLAY):
@@ -96,7 +89,6 @@ async def test_project(dut):
 
     # Start capturing
     os.makedirs("output", exist_ok=True)
-
     for i in range(CAPTURE_FRAMES):
         frame = await capture_frame(i)
         frame.save(f"output/frame{i}.png")
@@ -104,7 +96,7 @@ async def test_project(dut):
 
 @cocotb.test()
 async def compare_reference(dut):
-    cocotb.pass_test()
+    # Compare generated frames with reference images
     for img in glob.glob("output/frame*.png"):
         basename = img.removeprefix("output/")
         dut._log.info(f"Comparing {basename} to reference image")

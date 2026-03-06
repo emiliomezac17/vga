@@ -19,7 +19,6 @@ module tb ();
   wire [7:0] uo_out;
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
-
   // Instancia tu módulo principal:
  tt_um_emilio_vga user_project (
       .ui_in  (ui_in),    // Dedicated inputs

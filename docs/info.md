@@ -19,6 +19,6 @@ the design outputs simple RGB values to display a pattern on the screen.
 3. Program the design and observe the VGA output.
 4. The monitor should display the generated pattern if the sync signals are correct.
 
-## External hardware
+## External hardware 
 
 VGA monitor connected to the VGA output signals.

@@ -8,13 +8,17 @@ You can also include images in this folder and reference them in the markdown. E
 -->
 
 ## How it works
-
-Explain how your project works
+This project generates VGA synchronization signals to drive a VGA display. 
+It uses horizontal and vertical counters to produce the HSYNC and VSYNC signals 
+according to the VGA timing specification. Based on the current pixel position, 
+the design outputs simple RGB values to display a pattern on the screen.
 
 ## How to test
-
-Explain how to use your project
+1. Connect the VGA signals from the design to a VGA monitor.
+2. Provide a clock signal to the circuit.
+3. Program the design and observe the VGA output.
+4. The monitor should display the generated pattern if the sync signals are correct.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+VGA monitor connected to the VGA output signals.
